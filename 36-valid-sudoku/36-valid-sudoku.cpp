@@ -8,12 +8,6 @@ class Solution {
   bool isValidSudoku(vector<vector<char>>& board) {
     int n = board.size();
     set<char> st;
-    // for (int i = 0; i < n; ++i) {
-    //   for (int j = 0; j < n; j++) {
-    //     cout << board[i][j] << " ";
-    //   }
-    //   cout << endl;
-    // }
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j < n; j++) {
         if (st.find(board[i][j]) == st.end() && board[i][j] != '.') {
@@ -23,13 +17,11 @@ class Solution {
           return false;
         }
       }
-
       st = {};
     }
     st = {};
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j < n; j++) {
-        // cout<<board[j][i] << endl;
         if (st.find(board[j][i]) == st.end() && board[j][i] != '.') {
           st.insert(board[j][i]);
         } else if (board[j][i] != '.' && st.find(board[j][i]) != st.end()) {
@@ -37,7 +29,6 @@ class Solution {
           return false;
         }
       }
-      // cout<<st.size() << endl;
       st = {};
     }
     st.clear();
@@ -59,11 +50,8 @@ class Solution {
               }
             }
           }
-          cout << board[r][c] << " ";
         }
         st = {};
-        cout << endl;
-        // cout<<i << " " << j << endl;
       }
     }
     return true;
