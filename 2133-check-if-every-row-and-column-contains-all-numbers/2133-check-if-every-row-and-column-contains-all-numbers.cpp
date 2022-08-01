@@ -3,7 +3,7 @@ class Solution {
   bool checkValid(vector<vector<int>>& v) {
     int n = v[0].size();
     for (int i = 0; i < n; ++i) {
-      map<int, int> mp;
+      unordered_map<int, int> mp;
       for (int j = 0; j < n; ++j) {
         mp[v[i][j]]++;
       }
@@ -12,7 +12,7 @@ class Solution {
       }
     }
     for (int i = 0; i < n; ++i) {
-      map<int, int> mp;
+      unordered_map<int, int> mp;
       for (int j = 0; j < n; ++j) {
         mp[v[j][i]]++;
       }
