@@ -13,7 +13,6 @@ class Solution {
         if (st.find(board[i][j]) == st.end() && board[i][j] != '.') {
           st.insert(board[i][j]);
         } else if (board[i][j] != '.' && st.find(board[i][j]) != st.end()) {
-          cout << "1 flase " << endl;
           return false;
         }
       }
@@ -25,7 +24,6 @@ class Solution {
         if (st.find(board[j][i]) == st.end() && board[j][i] != '.') {
           st.insert(board[j][i]);
         } else if (board[j][i] != '.' && st.find(board[j][i]) != st.end()) {
-          cout << "2 flase " << endl;
           return false;
         }
       }
@@ -39,13 +37,11 @@ class Solution {
           int c = j + dy[k];
           if (st.find(board[i][j]) == st.end() && board[i][j] != '.')
             st.insert(board[i][j]);
-          if (k == 0) cout << board[i][j] << " ";
           if (isValid(r, c, n)) {
             if (board[r][c] != '.') {
               if (st.find(board[r][c]) == st.end()) {
                 st.insert(board[r][c]);
               } else {
-                cout << "3 false" << endl;
                 return false;
               }
             }
