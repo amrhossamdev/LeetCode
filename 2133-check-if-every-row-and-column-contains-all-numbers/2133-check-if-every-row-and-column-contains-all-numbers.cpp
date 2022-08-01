@@ -1,25 +1,22 @@
 class Solution {
  public:
   bool checkValid(vector<vector<int>>& v) {
-    int n = v[0].size();
-    for (int i = 0; i < n; ++i) {
-      unordered_map<int, int> mp;
-      for (int j = 0; j < n; ++j) {
-        mp[v[i][j]]++;
+    int n = v.size();
+    for (int i = 0; i < n; i++) {
+      vector<int> freq(n, 0);
+      for (int j = 0; j < n; j++) {
+        freq[v[i][j] - 1] = 1;
       }
-      if (mp.size() != n) {
-        return false;
+      for (auto i : freq) {
+        if (i == 0) return false;
       }
-    }
-    for (int i = 0; i < n; ++i) {
-      unordered_map<int, int> mp;
-      for (int j = 0; j < n; ++j) {
-        mp[v[j][i]]++;
+      for (int j = 0; j < n; j++) {
+        freq[v[j][i] - 1] = 0;
       }
-      if (mp.size() != n) {
-        return false;
+      for (auto i : freq) {
+        if (i == 1) return false;
       }
     }
     return true;
   }
-};
+  };
