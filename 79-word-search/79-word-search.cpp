@@ -5,7 +5,7 @@ public:
     int n;
     int m;
 
-    bool isValid(int i, int j, int n, int m, vector <vector<char>> &board, int cnt, string &word) {
+    bool isValid(int i, int j, int n, int m, vector <vector<char>> &board, int &cnt, string &word) {
         return (i >= 0 && i < n && j < m && j >= 0 && board[i][j] == word[cnt]);
     }
 
@@ -24,7 +24,6 @@ public:
     bool exist(vector <vector<char>> &board, string word) {
         n = board.size();
         m = board[0].size();
-        string ans("");
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
                 if (word[0] == board[i][j] && dfs(i, j, board, 0, word)) {
