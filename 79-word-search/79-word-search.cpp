@@ -5,7 +5,7 @@ public:
     int n;
     int m;
 
-    bool isValid(int i, int j, int n, int m, vector <vector<char>> &board, int cnt, string word) {
+    bool isValid(int i, int j, int n, int m, vector <vector<char>> &board, int cnt, string &word) {
         return (i >= 0 && i < n && j < m && j >= 0 && board[i][j] == word[cnt]);
     }
 
