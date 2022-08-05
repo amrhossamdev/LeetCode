@@ -9,7 +9,7 @@ public:
         return (i >= 0 && i < n && j < m && j >= 0 && board[i][j] == word[cnt]);
     }
 
-    bool dfs(int i, int j, vector <vector<char>> &board, int cnt, string word) {
+    bool dfs(int i, int j, vector <vector<char>> &board, int cnt, string &word) {
         if (cnt == word.length())return true;
         if (!isValid(i, j, n, m, board, cnt, word))return false;
         char temp = board[i][j];
