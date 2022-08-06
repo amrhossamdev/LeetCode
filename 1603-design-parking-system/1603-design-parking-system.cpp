@@ -1,6 +1,6 @@
 class ParkingSystem {
  public:
-  unordered_map<int, int> mp;
+  map<int, int> mp;
   ParkingSystem(int big, int medium, int small) {
     mp[3] = small;
     mp[2] = medium;
