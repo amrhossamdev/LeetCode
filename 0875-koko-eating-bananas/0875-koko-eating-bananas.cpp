@@ -6,7 +6,7 @@ public:
         for(int i=0;i<v.size();++i){
                 sum+=(ceil(1.0*v[i]/mid));
             }
-        return sum;
+        return sum<=h;
     }
 
     int minEatingSpeed(vector<int> &v, int h) {
@@ -16,7 +16,7 @@ public:
         while (l <= r) {
             long long sum = 0;
             long long m = (l+r)/2;
-            if(count(m,v,h)<=h){
+            if(count(m,v,h)){
                 ans = min(ans,m);
                 r = m - 1;
             }else {
