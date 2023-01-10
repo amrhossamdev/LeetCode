@@ -47,7 +47,6 @@ class Solution {
     int m = tree2.size();
     if (n != m || nodeR1 != nodeR2 || nodeL1 != nodeL2) return false;
     for (int i = 0; i < n; ++i) {
-      cout << tree1[i] << " " << tree2[i] << endl;
       if (tree1[i] != tree2[i]) return false;
     }
     return true;
