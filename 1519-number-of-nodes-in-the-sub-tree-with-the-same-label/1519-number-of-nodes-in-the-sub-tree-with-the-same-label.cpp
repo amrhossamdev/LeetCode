@@ -14,7 +14,8 @@ class Solution {
     }
   }
   vector<int> countSubTrees(int n, vector<vector<int>>& edges, string labels) {
-    for (int i = 0; i < edges.size(); ++i) {
+      int m = edges.size();
+    for (int i = 0; i < m;++i) {
       adj[edges[i][0]].push_back(edges[i][1]);
       adj[edges[i][1]].push_back(edges[i][0]);
     }
