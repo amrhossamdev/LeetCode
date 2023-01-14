@@ -29,7 +29,7 @@ class Solution {
           mn = min(mn, i);
         }
       }
-      return char(mn);
+      return char(mn+'a');
     }
     int merge(int u, int v) {
       u = findparent(u);
@@ -45,12 +45,12 @@ class Solution {
   string smallestEquivalentString(string s1, string s2, string baseStr) {
     int n = s1.size();
     DSU ds;
-    ds.init(250);
+    ds.init(26);
     for (int i = 0; i < n; ++i) {
-      ds.merge(s1[i], s2[i]);
+      ds.merge(s1[i]-'a', s2[i]-'a');
     }
     for (int i = 0; i < baseStr.size(); ++i) {
-      int ch = ds.getMin(baseStr[i]);
+      int ch = ds.getMin(baseStr[i] - 'a');
       if (baseStr[i] > ch) {
         baseStr[i] = ch;
       }
