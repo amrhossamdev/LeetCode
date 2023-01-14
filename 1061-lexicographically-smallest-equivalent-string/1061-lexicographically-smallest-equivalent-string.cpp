@@ -34,7 +34,7 @@ class Solution {
     }
       
     string ans;
-    for (char c : baseStr) {
+    for (char &c : baseStr) {
       ans += (char)(ds.findparent(c - 'a') + 'a');
     }
     return ans;
