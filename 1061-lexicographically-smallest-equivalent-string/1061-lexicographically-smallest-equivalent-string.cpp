@@ -21,23 +21,15 @@ class Solution {
       if (u == v) return true;
       return false;
     }
-    char getMin(int u) {
-      int mn = INT_MAX;
-      int pr = findparent(u);
-      for (int i = 0; i < par.size(); ++i) {
-        if (pr == par[i]) {
-          mn = min(mn, i);
-        }
-      }
-      return char(mn+'a');
-    }
     int merge(int u, int v) {
       u = findparent(u);
       v = findparent(v);
       if (u == v) return -1;
-      if (sz[v] > sz[u]) swap(u, v);
-      par[v] = u;
-      sz[u] += sz[v];
+      if (u < v) {
+        par[v] = u;
+      } else {
+        par[u] = v;
+      }
       return 0;
     }
   };
@@ -47,14 +39,13 @@ class Solution {
     DSU ds;
     ds.init(26);
     for (int i = 0; i < n; ++i) {
-      ds.merge(s1[i]-'a', s2[i]-'a');
+      ds.merge(s1[i] - 'a', s2[i] - 'a');
     }
-    for (int i = 0; i < baseStr.size(); ++i) {
-      int ch = ds.getMin(baseStr[i] - 'a');
-      if (baseStr[i] > ch) {
-        baseStr[i] = ch;
-      }
+      
+    string ans;
+    for (char c : baseStr) {
+      ans += (char)(ds.findparent(c - 'a') + 'a');
     }
-    return baseStr;
+    return ans;
   }
 };
