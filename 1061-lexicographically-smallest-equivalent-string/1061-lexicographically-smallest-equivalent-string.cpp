@@ -2,24 +2,15 @@ class Solution {
  public:
   struct DSU {
     vector<int> par;
-    vector<int> sz;
     void init(int n) {
       par = vector<int>(n + 1);
-      sz = vector<int>(n + 1, 1);
       for (int i = 1; i <= n; ++i) {
         par[i] = i;
       }
     }
-
     int findparent(int u) {
       if (par[u] == u) return u;
       return par[u] = findparent(par[u]);
-    }
-    bool isConnected(int u, int v) {
-      u = findparent(u);
-      v = findparent(v);
-      if (u == v) return true;
-      return false;
     }
     int merge(int u, int v) {
       u = findparent(u);
