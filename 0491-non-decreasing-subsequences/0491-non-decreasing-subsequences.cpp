@@ -3,7 +3,7 @@ class Solution {
   vector<vector<int>> findSubsequences(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> ans;
-    set < vector<int>> st;
+    set<vector<int>> st;
     for (int msk = 1; msk < (1 << n); ++msk) {
       vector<int> subset;
       bool check = true;
@@ -19,10 +19,11 @@ class Solution {
           break;
         }
       }
-
-      if (st.find(subset) == st.end()) {
-        if (check) ans.push_back(subset);
-        st.insert(subset);
+      if (check) {
+        if (st.find(subset) == st.end()) {
+          ans.push_back(subset);
+          st.insert(subset);
+        }
       }
     }
     return ans;
