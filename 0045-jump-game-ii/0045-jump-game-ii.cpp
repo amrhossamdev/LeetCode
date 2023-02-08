@@ -7,11 +7,11 @@ public:
         if(index > n || v[index] == 0)return INT_MAX;
         long long &ret = dp[index];
         if (~ret) return dp[index];
-        long long ans = INT_MAX;
+        ret = INT_MAX;
         for(int i = 1;i<=v[index];++i){
-            ans = min(ans,1 + go(index + i,v,n));  
+            ret = min(ret,1 + go(index + i,v,n));  
         }
-        return ret = ans;
+        return ret;
     }
 
     int jump(vector<int> &v) {
