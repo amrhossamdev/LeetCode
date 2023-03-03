@@ -1,11 +1,11 @@
 class Solution {
 public:
-    const int N = 1e5 + 5;
+    const int N = 1e4 + 5;
 const long long mod = 1e9 + 7, mod2 = 1e9 + 9;
 const int INF = 2e9;
 const int p = 31, p2 = 37;
- long long pw[100005], pref[100005], inv[100005];
- long long pw2[100005], pref2[100005], inv2[100005];
+ long long pw[10005], pref[10005], inv[10005];
+ long long pw2[10005], pref2[10005], inv2[10005];
 
 
  long long mul(long long a, long long b, long long m) {
