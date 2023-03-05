@@ -16,7 +16,11 @@ public:
     }
     int lengthOfLIS(vector<int>& nums) {
         int n = nums.size();
-        memset(dp,-1,sizeof(dp));
+        for(int i =0;i<=n;++i){
+            for(int j = 0;j<=n;++j){
+                dp[i][j] = -1;
+            }
+        }
         int ans = go(0,-1,n,nums);
         return ans;
     }
