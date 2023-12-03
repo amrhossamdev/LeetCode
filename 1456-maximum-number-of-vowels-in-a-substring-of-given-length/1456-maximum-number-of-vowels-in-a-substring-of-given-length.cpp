@@ -5,21 +5,15 @@ class Solution {
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
   }
   int maxVowels(string s, int k) {
-    deque<char> dq;
     int n = s.size();
-    int ans = 0;
-    int cnt = 0;
-    for (int i = 0; i < k; ++i) {
-      dq.push_back(s[i]);
-      cnt += isVowel(s[i]);
+    int pre[n];
+    pre[0] = isVowel(s[0]) ? 1 : 0;
+    for (int i = 1; i < n; ++i) {
+      pre[i] = pre[i - 1] + isVowel(s[i]);
     }
-    ans = cnt;
+    int ans = pre[k - 1];
     for (int i = k; i < n; ++i) {
-      cnt -= isVowel(dq.front());
-      dq.pop_front();
-      dq.push_back(s[i]);
-      cnt += isVowel(dq.back());
-      ans = max(ans, cnt);
+      ans = max(ans, pre[i] - pre[i - k]);
     }
     return ans;
   }
