@@ -4,7 +4,6 @@ public:
         int n = nums.size();
         int l =0,r = 0;
         int mx = -1e9;
-        int cnt = 0;
         while(l<n){
             while(r<n && (nums[r] || k)){
                 if(!k && !nums[r]){break;}
