@@ -11,7 +11,6 @@ class Solution {
       }
       st.push(s[i]);
     }
-    cout << k << endl;
     string ans;
     while (!st.empty()) {
       ans += st.top();
