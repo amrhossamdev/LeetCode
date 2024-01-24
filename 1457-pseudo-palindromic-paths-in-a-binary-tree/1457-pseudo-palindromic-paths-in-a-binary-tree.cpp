@@ -23,7 +23,7 @@ class Solution {
     return (even && (odd == 1 || !odd)) || (!even && odd == 1);
   }
   int ans = 0;
-  void dfs(TreeNode* node, vector<int> freq) {
+  void dfs(TreeNode* node, vector<int> &freq) {
     if (node == nullptr) {
         return;
       }
