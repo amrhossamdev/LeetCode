@@ -4,13 +4,7 @@ class Solution {
 
   void rec(int idx, int n, int sum, vector<int>& tmp, vector<int>& v,
            int target) {
-    if (sum > target) {
-      return;
-    }
-    if (idx >= n) {
-      if (sum == target) {
-        ans.push_back(tmp);
-      }
+    if (sum > target || idx >= n) {
       return;
     }
     if (sum == target) {
