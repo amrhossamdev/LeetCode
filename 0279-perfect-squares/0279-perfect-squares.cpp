@@ -14,7 +14,7 @@ class Solution {
     return ret;
   }
   int numSquares(int n) {
-    for (int i = 1; i <= 100; ++i) {
+    for (int i = 1; i <= n; ++i) {
       v.push_back(i * i);
     }
     vector<int>dp(n + 1,-1);
