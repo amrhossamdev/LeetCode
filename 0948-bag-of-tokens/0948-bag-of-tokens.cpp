@@ -1,32 +1,25 @@
 class Solution {
  public:
-  
   int bagOfTokensScore(vector<int> &tokens, int power) {
-      
-      multiset<int>st;
-      int n = tokens.size();
-      for(int i = 0;i<n;++i){
-          st.insert(tokens[i]);
+    int score = 0;
+    int n = tokens.size();
+    int l = 0, r = n - 1;
+    int ans = 0;
+    sort(tokens.begin(), tokens.end());
+    while (l <= r) {
+      if (power >= tokens[l]) {
+        power -= tokens[l++];
+        score++;
+      } else {
+        if (score) {
+          power += tokens[r];
+          score--;
+        }
+        r--;
       }
+      ans = max(score, ans);
+    }
 
-      int score = 0;
-      while(!st.empty()){
-          auto cur =  *st.begin();
-          st.erase(st.find(cur));
-          if(power >= cur){
-              score++;
-              power-=cur;
-          }else{
-              if(st.size() && score){
-                st.insert(cur);
-                auto back = prev(st.end());
-                power+= *back;
-                score--;
-                st.erase(back);
-              }
-          }
-      }
-    
-    return score;
+    return ans;
   }
 };
