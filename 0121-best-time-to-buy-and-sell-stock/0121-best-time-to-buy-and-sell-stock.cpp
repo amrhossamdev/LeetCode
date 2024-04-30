@@ -4,14 +4,11 @@ public:
         int n = prices.size();
         
         int profit = 0;
-        int buy = prices[0];
+        int mn = prices[0];
         
         for(int i = 0;i<n;++i){
-            if(prices[i] < buy){
-                buy = prices[i];
-            }else if(prices[i] - buy > profit){
-                profit = prices[i] - buy;
-            }
+            profit = max(profit,prices[i] - mn);
+            mn = min(mn,prices[i]);
         }
         
         return profit;
