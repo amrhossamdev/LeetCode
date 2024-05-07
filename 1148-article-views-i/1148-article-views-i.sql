@@ -1,0 +1,1 @@
+SELECT distinct author_id as id FROM Views where viewer_id = author_id order by id;
